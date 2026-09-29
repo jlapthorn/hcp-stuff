@@ -1,0 +1,29 @@
+static_network_config:
+  - mac_interface_map:
+      - logical_nic_name: enp6s0
+        mac_address: "9c:6b:00:26:4e:7d"
+    network_yaml: |
+      interfaces:
+        - name: enp6s0
+          type: ethernet
+          state: up
+          ipv4:
+            enabled: true
+            address:
+              - ip: 157.180.56.29
+                prefix-length: 32
+            dhcp: false
+          ipv6:
+            enabled: false
+      dns-resolver:
+        config:
+          server:
+            - 185.12.64.1
+            - 185.12.64.2
+      routes:
+        config:
+          - destination: 157.180.56.1/32
+            next-hop-interface: enp6s0
+          - destination: 0.0.0.0/0
+            next-hop-address: 157.180.56.1
+            next-hop-interface: enp6s0

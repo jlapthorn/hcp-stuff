@@ -1,0 +1,28 @@
+# Secrets
+pull-secret.json
+kubeadmin-password.*
+kubeconfig.*
+auth/
+.openshift_install_state.json
+
+# Rendered HCP manifests — embed pull secrets, SSH private keys and etcd keys
+sno-install/hcp1.yaml
+sno-install/hcp2.yaml
+
+# Large binaries
+*.iso
+hcp
+hcp.tar.gz
+openshift-install
+boot-artifacts/
+
+# Logs
+.openshift_install.log
+
+# Claude Code local settings
+.claude/
+
+# Editor / OS
+.DS_Store
+*.swp
+*~
