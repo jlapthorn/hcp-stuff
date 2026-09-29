@@ -1,0 +1,24 @@
+interfaces:
+  - name: enp0s31f6
+    type: ethernet
+    state: up
+    ipv4:
+      enabled: true
+      address:
+        - ip: 95.216.76.100
+          prefix-length: 32
+      dhcp: false
+    ipv6:
+      enabled: false
+dns-resolver:
+  config:
+    server:
+      - 185.12.64.1
+      - 185.12.64.2
+routes:
+  config:
+    - destination: 95.216.76.65/32
+      next-hop-interface: enp0s31f6
+    - destination: 0.0.0.0/0
+      next-hop-address: 95.216.76.65
+      next-hop-interface: enp0s31f6

@@ -1,0 +1,27 @@
+apiVersion: v1
+metadata:
+  name: ocp4
+baseDomain: lapthorn.me
+compute:
+  - architecture: amd64
+    hyperthreading: Enabled
+    name: worker
+    replicas: 0
+controlPlane:
+  architecture: amd64
+  hyperthreading: Enabled
+  name: master
+  replicas: 1
+networking:
+  clusterNetwork:
+    - cidr: 10.128.0.0/14
+      hostPrefix: 23
+  machineNetwork:
+    - cidr: 95.216.76.0/24
+  networkType: OVNKubernetes
+  serviceNetwork:
+    - 172.30.0.0/16
+platform:
+  none: {}
+pullSecret: '<REDACTED -- download yours from console.redhat.com/openshift/install/pull-secret>'
+sshKey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF81+EYvBMyyg9dya8VpwmjiE/UOL3gBxAPo7mrI4I92 RedHatCSB"
